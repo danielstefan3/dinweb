@@ -45,9 +45,16 @@ function html_errors($key) {
 
     if(isset($errors[$key])) {
         foreach ($errors[$key] as $error) {
-            $html .= "<p class='input-error'>$error</p>";
+            $html .= "<div class=\"invalid-feedback\">$error</div>";
         }
     }
+    return $html;
+}
+
+function is_invalid($key) {
+    global $errors;
+
+    $html=isset($errors[$key])?"is-invalid":"";
     return $html;
 }
 

@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>play.it</title>
  
-    <link rel="stylesheet" href="<?php echo asset("/css/app.css");?>">
+    <link rel="stylesheet" href="<?php echo asset("/css/bootstrap.min.css");?>">
 </head>
 <body>
     <header>
@@ -23,6 +23,9 @@
                     </li>
                     <li>
                         <a <?php echo $page == 'upload' ? 'class="active"' : ""; ?> href="<?php echo page('upload'); ?>">Upload</a>
+                    </li>
+                    <li>
+                        <a href="?logout=1">Logout</a>
                     </li>
                 </ul>
             </nav>
