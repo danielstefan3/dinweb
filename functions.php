@@ -31,11 +31,29 @@ function redirect($page = 'home', $params= []) {
 }
 
 function asset($asset) {
-    return DOMAIN . $asset;
+    return DOMAIN . 'assets' . $asset;
 }
 
 function is_post() {
     return $_SERVER['REQUEST_METHOD'] === 'POST';
+}
+
+function html_errors_alert($key) {
+    global $errors;
+
+    $html="";
+    
+    if(isset($errors[$key])) {
+        $html="<div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\">";
+        foreach ($errors[$key] as $error) {
+            $html .= "<p class=\"small m-0\">$error</p>";
+        }
+        $html.="<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                <span aria-hidden=\"true\">&times;</span>
+                </button>
+                </div>";
+    }
+    return $html;
 }
 
 function html_errors($key) {

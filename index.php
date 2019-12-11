@@ -12,13 +12,13 @@ $page = isset($_GET['p']) ? $_GET['p'] : 'home';
 $db = db_connect();
 
 if (file_exists("./views/$page.php")) {
-    if ( isset( $_SESSION['user_id'] ) ) {
-        // Grab user data from the database using the user_id
-        // Let them access the "logged in only" pages
+    if (isset( $_SESSION['user_id'])) {
         include "./views/$page.php";
-    } else {
-        include "./views/login.php";
     }
+    elseif($page == 'login' || $page == 'registration') {
+        include "./views/$page.php";
+    }
+    else include "./views/login.php";
 } else {
     include "./views/404.php";
 }
