@@ -1,8 +1,23 @@
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header,footer {
+  flex: 0 1 auto;
+}
+
+main {
+  padding-top: 5rem;
+  flex: 1 1 auto;
+}
+
 .jumbotron {
+  margin-top: -5rem;
   padding-top: 3rem;
   padding-bottom: 3rem;
   margin-bottom: 0;
-  background-color: #fff;
 }
 @media (min-width: 768px) {
   .jumbotron {

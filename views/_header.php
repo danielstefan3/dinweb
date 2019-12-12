@@ -32,7 +32,7 @@
   </div>
   <div class="navbar navbar-dark bg-dark shadow-sm flex-column">
     <div class="container d-flex justify-content-between z-index-1 flex-column flex-sm-row">
-      <a href="#" class="navbar-brand d-flex align-items-center flex-column flex-sm-row m-0">
+      <a href="?p=home" class="navbar-brand d-flex align-items-center flex-column flex-sm-row m-0">
         <img src="<?php echo asset("/images/television.svg");?>" alt="TV Series" height="80">
         <h1 class="ml-0 ml-sm-4 mt-2 mb-0"><strong>TV Series</strong></h1>
       </a>
