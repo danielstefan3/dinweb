@@ -1,1 +1,1 @@
-asdasdad
+Dinamikus webprogramozás beadandó feladat.
