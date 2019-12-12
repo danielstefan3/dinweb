@@ -1,10 +1,18 @@
 <?php if (!defined('APP_VERSION')) { exit; } ?>
     <!-- Start of Footer -->
     </main>
-    <footer>
-        <div class="container">
-            <p>© 2019 play.it All rights reserved.</p>
-        </div>
-    </footer>
+    <footer class="text-muted">
+  <div class="container">
+    <p class="float-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>Album example is © Bootstrap, but please download and customize it for yourself!</p>
+    <p>New to Bootstrap? <a href="https://getbootstrap.com/">Visit the homepage</a> or read our <a href="/docs/4.4/getting-started/introduction/">getting started guide</a>.</p>
+  </div>
+</footer>
+<script src="<?php echo asset("/js/jquery-3.4.1.min.js");?>"></script>
+<script src="<?php echo asset("/js/popper.min.js");?>"></script>
+<script src="<?php echo asset("/js/bootstrap.min.js");?>"></script>
+<script src="<?php echo asset("/js/main.js");?>"></script>
 </body>
 </html>
