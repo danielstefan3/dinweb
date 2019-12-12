@@ -67,13 +67,13 @@ $decrypted_pw = password_verify("sajt",$hashed_pw);
 <body class="text-center">
     <form class="form-signin" action="<?php echo page('login'); ?>" method="POST" novalidate>
     <?php echo html_errors_alert('both')?>
-  <img class="mb-4" src="/docs/4.4/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+  <img class="mb-4" src="<?php echo asset("/images/television.svg");?>" alt="" width="72" height="72">
   <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
   <label for="inputEmail" class="sr-only">Email address</label>
   <input type="email" id="inputEmail" class="form-control <?php echo is_invalid('email')?>" name="email" placeholder="Email address" autofocus=""  value="<?php echo isset($email)?$email:'';?>">
   <label for="inputPassword" class="sr-only">Password</label>
   <input type="password" id="inputPassword" class="form-control <?php echo is_invalid('password')?>" name="password" placeholder="Password">
-  <button class="btn btn-lg btn-primary btn-block mt-3" type="submit">Sign in</button>
+  <button class="btn btn-lg btn-dark btn-block mt-3" type="submit">Sign in</button>
   <a href="?p=registration">Don't have an account? Register!</a>
   <p class="mt-5 mb-3 text-muted">©mh0cft 2019</p>
 </form>
