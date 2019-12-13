@@ -63,6 +63,7 @@ $decrypted_pw = password_verify("sajt",$hashed_pw);
  
     <link rel="stylesheet" href="<?php echo asset("/css/bootstrap.min.css");?>">
     <link rel="stylesheet" href="<?php echo asset("/css/login.css");?>">
+    <link rel="stylesheet" href="<?php echo asset("/css/style.css");?>">
 </head>
 <body class="text-center">
     <form class="form-signin" action="<?php echo page('login'); ?>" method="POST" novalidate>

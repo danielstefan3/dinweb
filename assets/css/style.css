@@ -123,3 +123,102 @@ section.jumbotron {
   background: url(https://initiate.alphacoders.com/images/794/cropped-1920-1080-794362.jpg?6446) no-repeat center center;
   background-size: cover;
 }
+
+a {
+  color: var(--gray);
+}
+
+a:hover {
+  color: var(--gray-dark);
+}
+
+/* FORM */
+
+.form-control:focus {
+  border-color: var(--gray-dark);
+  box-shadow: 0 0 0 0.2rem rgba(105, 105, 105, 0.25);
+}
+
+.custom-control-input:focus:not(:checked)~.custom-control-label::before {
+  border-color: var(--gray-dark);
+}
+
+.custom-control-input:focus~.custom-control-label::before {
+  box-shadow: 0 0 0 0.2rem rgba(105, 105, 105, 0.25);;
+}
+
+.custom-control-input:not(:disabled):active~.custom-control-label::before {
+  color: #fff;
+  background-color: var(--gray);
+  border-color: var(--gray);
+}
+
+.custom-control-input:checked~.custom-control-label::before {
+  color: #fff;
+  border-color: var(--gray-dark);
+  background-color: var(--gray-dark);
+}
+
+.upload-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.upload-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  cursor:pointer;
+}
+
+.upload-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.inputfile-2 + label {
+background-color: var(--purple);
+  color: #fff;
+  border-radius: 0px;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  -moz-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  -o-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.inputfile + label {
+  max-width: 80%;
+  font-size: 16px;
+  font-weight: normal !important;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  padding: 8px 1.25rem;
+  border-radius: 5px;
+  border: 1px solid var(--purple);
+}
+
+.inputfile + label:hover, .inputfile + label:active, .inputfile + label.hover {
+  background-color: var(--purple-light);
+  color: #fff;
+}
+
+.inputfile + label > i {
+margin-right: 5px;
+font-size: 16px;
+}

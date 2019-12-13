@@ -92,6 +92,7 @@
  
     <link rel="stylesheet" href="<?php echo asset("/css/bootstrap.min.css");?>">
     <link rel="stylesheet" href="<?php echo asset("/css/login.css");?>">
+    <link rel="stylesheet" href="<?php echo asset("/css/style.css");?>">
 </head>
 <body class="text-center">
 <form class="form-signin form-registration d-flex flex-column align-items-center" action="<?php echo page('registration'); ?>" method="POST" novalidate>
