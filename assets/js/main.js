@@ -1,8 +1,8 @@
 $(function () {
-    $('[data-toggle="tooltip"]').tooltip()
+    $('[data-toggle="tooltip"]').tooltip();
 })
 
-$('.alert').alert()
+$('.alert').alert();
 
 (function ( document, window, index )
 {

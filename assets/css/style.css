@@ -190,7 +190,7 @@ a:hover {
 }
 
 .inputfile-2 + label {
-background-color: var(--purple);
+  background-color: var(--purple);
   color: #fff;
   border-radius: 0px;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -213,8 +213,21 @@ background-color: var(--purple);
   border: 1px solid var(--purple);
 }
 
+.inputfile-2.is-invalid + label {
+  background-color: var(--red);
+}
+
+.inputfile.is-invalid + label {
+  border: 1px solid var(--red);
+}
+
 .inputfile + label:hover, .inputfile + label:active, .inputfile + label.hover {
   background-color: var(--purple-light);
+  color: #fff;
+}
+
+.inputfile.is-invalid + label:hover, .inputfile.is-invalid + label:active, .inputfile.is-invalid + label.hover {
+  background-color: var(--red);
   color: #fff;
 }
 

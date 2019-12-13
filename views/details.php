@@ -4,7 +4,7 @@
         redirect("404");
     }
 
-    $album = get_album_by_id($_GET['id']);
+    $album = get_series_by_id($_GET['id']);
 
     if($album == null) {
         redirect("404");

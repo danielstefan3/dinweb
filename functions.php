@@ -76,10 +76,10 @@ function is_invalid($key) {
     return $html;
 }
 
-function get_album_by_id($id) {
+function get_series_by_id($id) {
     global $db;
 
-    $sql = $db->prepare("SELECT * FROM albums WHERE id = ?");
+    $sql = $db->prepare("SELECT * FROM series WHERE series_id = ?");
     $sql->bind_param("i", $id);
     $sql->execute();
 
@@ -89,4 +89,35 @@ function get_album_by_id($id) {
         return null;
     }
     return $result->fetch_assoc();
+}
+
+function get_all_series($limit) {
+    global $db;
+
+    $sql = $db->prepare("SELECT * FROM series ORDER BY addtime DESC LIMIT ?");
+    $sql->bind_param("i", $limit);
+    $sql->execute();
+
+    $result = $sql->get_result();
+
+    if($result->num_rows == 0){
+        return null;
+    }
+    while ($row = $result->fetch_assoc()){
+        $rows[] = $row;
+    }
+    return $rows;
+}
+
+function uploadImageFile($target_directory, $name_passed, $newfile_name) {
+	$target_dir = $target_directory;
+	$target_file = $target_dir . basename($_FILES[$name_passed]["name"]);
+	$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+	if($newfile_name) {
+		$target_file = $target_dir . $newfile_name .".". $imageFileType;
+	}
+	if (file_exists($target_file)) {
+		unlink($target_file);
+	}
+    move_uploaded_file($_FILES[$name_passed]["tmp_name"], $target_file);
 }
