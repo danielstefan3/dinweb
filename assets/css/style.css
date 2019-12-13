@@ -94,6 +94,7 @@ footer p {
     min-height: 105px;
     height: 24vh;
     box-sizing: border-box;
+    margin-top: -5px;
     padding: 0px 0px 0px;
     overflow: hidden;
     -webkit-transform: skewY(-3deg);
