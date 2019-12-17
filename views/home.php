@@ -19,13 +19,13 @@
               <img src="<?php echo "./data/$series[series_id].jpg";?>" alt="" class="card-img-top">
               <div class="card-body">
                 <h5 class="card-title"><?php echo "$series[title]";?></h5>
-                <p class="card-text"><?php echo "$series[description]";?></p>
+                <p class="card-text"><?php echo "$series[story]";?></p>
                 <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <a href="<?php echo "?p=details&id=$series[series_id]"?>" class="btn btn-sm btn-outline-secondary">View</a>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                  <div class="btn-group position-static">
+                    <a href="<?php echo "?p=details&id=$series[series_id]"?>" class="btn btn-sm btn-outline-secondary stretched-link">View</a>
+                    <a href="<?php echo "?p=edit&id=$series[series_id]"?>" class="btn btn-sm btn-outline-secondary">Edit</a>
                   </div>
-                  <small class="text-muted">9 mins</small>
+                  <small class="text-muted"><?php echo time_elapsed_string($series['addtime'])?></small>
                 </div>
               </div>
             </div>

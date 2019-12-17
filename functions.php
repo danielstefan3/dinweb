@@ -26,7 +26,7 @@ function page($page = 'home', $params = []) {
 
 function redirect($page = 'home', $params= []) {
     $url = page($page,$params);
-    header("Location: $url");
+    header("Location:$url");
     die();
 }
 
@@ -109,8 +109,7 @@ function get_all_series($limit) {
     return $rows;
 }
 
-function uploadImageFile($target_directory, $name_passed, $newfile_name) {
-	$target_dir = $target_directory;
+function uploadImageFile($target_dir, $name_passed, $newfile_name) {
 	$target_file = $target_dir . basename($_FILES[$name_passed]["name"]);
 	$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 	if($newfile_name) {
@@ -120,4 +119,33 @@ function uploadImageFile($target_directory, $name_passed, $newfile_name) {
 		unlink($target_file);
 	}
     move_uploaded_file($_FILES[$name_passed]["tmp_name"], $target_file);
+}
+
+function time_elapsed_string($datetime, $full = false) {
+    $now = new DateTime;
+    $ago = new DateTime($datetime);
+    $diff = $now->diff($ago);
+
+    $diff->w = floor($diff->d / 7);
+    $diff->d -= $diff->w * 7;
+
+    $string = array(
+        'y' => 'year',
+        'm' => 'month',
+        'w' => 'week',
+        'd' => 'day',
+        'h' => 'hour',
+        'i' => 'minute',
+        's' => 'second',
+    );
+    foreach ($string as $k => &$v) {
+        if ($diff->$k) {
+            $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
+        } else {
+            unset($string[$k]);
+        }
+    }
+
+    if (!$full) $string = array_slice($string, 0, 1);
+    return $string ? implode(', ', $string) . ' ago' : 'just now';
 }

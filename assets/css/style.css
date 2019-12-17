@@ -120,7 +120,7 @@ button:focus {
 }
 
 section.jumbotron {
-  background: url(https://initiate.alphacoders.com/images/794/cropped-1920-1080-794362.jpg?6446) no-repeat center center;
+  background: url('../images/jumbotron_bg.jpg') no-repeat center center;
   background-size: cover;
 }
 
@@ -234,4 +234,31 @@ a:hover {
 .inputfile + label > i {
 margin-right: 5px;
 font-size: 16px;
+}
+
+/* HOME */
+
+.card {
+  overflow:hidden;
+  transition: box-shadow .3s ease-in-out;
+  -webkit-transition: box-shadow .3s ease-in-out;
+  -o-transition: box-shadow .3s ease-in-out;
+  -moz-transition: box-shadow .3s ease-in-out;
+}
+
+/* Gray Scale */
+.card img {
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+.card:hover {
+  box-shadow: 0 1rem 3rem rgba(0,0,0,.175) !important;
+}
+
+.card:hover img {
+	-webkit-filter: grayscale(0);
+	filter: grayscale(0);
 }
