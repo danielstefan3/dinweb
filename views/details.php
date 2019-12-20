@@ -11,7 +11,8 @@
     }
 ?>
 <?php include "_header.php"; ?>
-<div class="page page-details">
+<div class="container">
     <h1><?php echo $album['title'];?></h1>
+    <p><?php?></p>
 </div>
 <?php include "_footer.php"; ?>

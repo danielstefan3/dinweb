@@ -13,6 +13,7 @@
 <script src="<?php echo asset("/js/jquery-3.4.1.min.js");?>"></script>
 <script src="<?php echo asset("/js/popper.min.js");?>"></script>
 <script src="<?php echo asset("/js/bootstrap.min.js");?>"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
 <script src="<?php echo asset("/js/main.js");?>"></script>
 </body>
 </html>

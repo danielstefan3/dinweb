@@ -76,6 +76,10 @@
             <label for="title">Title</label>
             <input type="text" class="form-control <?php echo is_invalid('title')?>" name="title" value="<?php echo isset($title)?$title:'';?>">
             <?php echo html_errors('title')?>
+            <label for="genre" class="mt-3">Genre</label>
+            <select class="js-example-basic-multiple w-100" name="genre[]" multiple="multiple">
+                <?php get_all_genre();?>
+            </select>
         </div>
         <div class="form-group col-12 col-md-6">
             <label for="release_year">Release year</label>

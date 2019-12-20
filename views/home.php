@@ -14,19 +14,19 @@
     <div class="container">
       <div class="row">
         <?php foreach (get_all_series(6) as $series):?>
-          <div class="col-md-4 d-flex flex-column">
+          <div class="col-md-6 col-lg-4 d-flex flex-column">
             <div class="card mb-4 shadow-sm flex-fill">
               <img src="<?php echo "./data/$series[series_id].jpg";?>" alt="" class="card-img-top">
               <div class="card-body">
                 <h5 class="card-title"><?php echo "$series[title]";?></h5>
-                <p class="card-text"><?php echo "$series[story]";?></p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group position-static">
-                    <a href="<?php echo "?p=details&id=$series[series_id]"?>" class="btn btn-sm btn-outline-secondary stretched-link">View</a>
-                    <a href="<?php echo "?p=edit&id=$series[series_id]"?>" class="btn btn-sm btn-outline-secondary">Edit</a>
-                  </div>
-                  <small class="text-muted"><?php echo time_elapsed_string($series['addtime'])?></small>
+                <p class="card-text"><?php echo cut_text($series['story'],250)?></p>
+              </div>
+              <div class="card-footer d-flex justify-content-between align-items-center">
+                <div class="btn-group position-static">
+                  <a href="<?php echo "?p=details&id=$series[series_id]"?>" class="btn btn-sm btn-outline-secondary stretched-link">View</a>
+                  <a href="<?php echo "?p=edit&id=$series[series_id]"?>" class="btn btn-sm btn-outline-secondary">Edit</a>
                 </div>
+                <small class="text-muted"><?php echo time_elapsed_string($series['addtime'])?></small>
               </div>
             </div>
           </div>

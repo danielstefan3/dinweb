@@ -149,3 +149,18 @@ function time_elapsed_string($datetime, $full = false) {
     if (!$full) $string = array_slice($string, 0, 1);
     return $string ? implode(', ', $string) . ' ago' : 'just now';
 }
+
+function cut_text($text,$max) {
+    return strlen($text) > $max ? substr($text,0,$max)."..." : $text;
+}
+
+function get_all_genre() {
+    global $db;
+    
+    $sql = $db->prepare("SELECT * FROM genre");
+    $sql->execute();
+    $result = $sql->get_result();
+    foreach ($result as $genre) {
+        echo "<option value='$genre[genre_id]'>$genre[name]</option>";
+    }
+}
