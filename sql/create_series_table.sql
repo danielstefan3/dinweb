@@ -4,5 +4,6 @@ CREATE TABLE `series` (
     `release_year` INT NOT NULL,
     `story` TEXT NOT NULL,
     `description` TEXT NOT NULL,
+    `cover` VARCHAR(255) NOT NULL,
     `addtime` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 )

@@ -109,6 +109,16 @@ function get_all_series($limit) {
     return $rows;
 }
 
+/**
+ * @param string $target_dir The directory where you want to save the file, directory must exists
+ * 							  (ex. "$root_path/data/profile/")
+ * @param string $name_passed The value of the name attribute of the form input which holds the image file
+ * 							  (ex. <input type="file" name="profpic"> ==> "profpic")
+ * @param string $newfile_name optional. If used, rename the image.
+ * 							  (ex. "1" ==> 1.jpg)
+ * @return string $target_file The path of the file in the server. Use it for update database.
+ */
+
 function uploadImageFile($target_dir, $name_passed, $newfile_name) {
 	$target_file = $target_dir . basename($_FILES[$name_passed]["name"]);
 	$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -119,6 +129,7 @@ function uploadImageFile($target_dir, $name_passed, $newfile_name) {
 		unlink($target_file);
 	}
     move_uploaded_file($_FILES[$name_passed]["tmp_name"], $target_file);
+    return $target_file;
 }
 
 function time_elapsed_string($datetime, $full = false) {
@@ -154,13 +165,15 @@ function cut_text($text,$max) {
     return strlen($text) > $max ? substr($text,0,$max)."..." : $text;
 }
 
-function get_all_genre() {
+function get_all_genre($genres = array()) {
     global $db;
     
     $sql = $db->prepare("SELECT * FROM genre");
     $sql->execute();
     $result = $sql->get_result();
     foreach ($result as $genre) {
-        echo "<option value='$genre[genre_id]'>$genre[name]</option>";
+        if(in_array($genre['genre_id'],$genres))
+            echo "<option value='$genre[genre_id]' selected>$genre[name]</option>";
+        else echo "<option value='$genre[genre_id]'>$genre[name]</option>";
     }
 }

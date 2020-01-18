@@ -16,7 +16,7 @@
         <?php foreach (get_all_series(6) as $series):?>
           <div class="col-md-6 col-lg-4 d-flex flex-column">
             <div class="card mb-4 shadow-sm flex-fill">
-              <img src="<?php echo "./data/$series[series_id].jpg";?>" alt="" class="card-img-top">
+              <img src="<?php echo "$series[cover]";?>" alt="" class="card-img-top">
               <div class="card-body">
                 <h5 class="card-title"><?php echo "$series[title]";?></h5>
                 <p class="card-text"><?php echo cut_text($series['story'],250)?></p>

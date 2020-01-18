@@ -6,10 +6,12 @@
         $release_year = $_POST['release_year'];
         $story = $_POST['story'];
         $description = $_POST['description'];
+        $genres = $_POST['genre'];
 
         $cover_error = $_FILES['cover']['error'];
         $cover_type = $_FILES['cover']['type'];
         $cover_name = $_FILES['cover']['name'];
+
 
         if($title == null) {
             $errors['title'][] = 'Title is required';
@@ -42,6 +44,10 @@
             }
         }
 
+        if($genres == null) {
+            $errors['genres'][] = 'At least one genre is required';
+        }
+
         if($cover_error != null) {
             if($cover_error == '4') {
                 $errors['cover'][] = 'You must upload a cover picture.';
@@ -60,8 +66,20 @@
             $sql->close();
             
             $new_id = $db->insert_id;
+
+            foreach ($genres as $genre) {
+                $sql2 = $db->prepare("INSERT INTO series_genre (series_id,genre_id) VALUES (?,?)");
+                $sql2->bind_param('ii', $new_id, $genre);
+                $sql2->execute();
+            }
+            $sql2->close();
             
-            uploadImageFile("./data/","cover",$new_id);
+            $pic_name = uploadImageFile("./data/","cover",$new_id);
+            $sql3 = $db->prepare("UPDATE series SET cover = ? WHERE series_id = ?");
+            $sql3->bind_param('ss', $pic_name, $new_id);
+            $sql3->execute();
+            $sql3->close();
+
             redirect('details', ['id' => $new_id, 'success' => 1]);
         }
         //dd($errors);
@@ -77,9 +95,11 @@
             <input type="text" class="form-control <?php echo is_invalid('title')?>" name="title" value="<?php echo isset($title)?$title:'';?>">
             <?php echo html_errors('title')?>
             <label for="genre" class="mt-3">Genre</label>
-            <select class="js-example-basic-multiple w-100" name="genre[]" multiple="multiple">
-                <?php get_all_genre();?>
+            <input type="hidden" name="genre" value="">
+            <select class="js-example-basic-multiple w-100 <?php echo is_invalid('genres')?>" name="genre[]" multiple="multiple">
+                <?php get_all_genre($genres);?>
             </select>
+            <?php echo html_errors('genres')?>
         </div>
         <div class="form-group col-12 col-md-6">
             <label for="release_year">Release year</label>

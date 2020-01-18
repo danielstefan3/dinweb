@@ -65,20 +65,18 @@
                 uploadImageFile("./data/","cover",$id);
             }
             redirect('details', ['id' => $id, 'success' => 1]);
-            exit;
         }
-        //dd($errors);
-        //TODO: validate
     }
 ?>
 <?php
     include "_header.php";
     if(isset($_GET['id'])):
-    $series = get_series_by_id($_GET['id']);
+    $id = $_GET['id'];
+    $series = get_series_by_id($id);
 ?>
 <div class="container">
     <h1>Edit series</h1>
-    <form enctype="multipart/form-data" class="row" action="<?php echo page('edit'); ?>" method="POST" novalidate>
+    <form enctype="multipart/form-data" class="row" action="<?php echo page('edit', ['id' => $id]); ?>" method="POST" novalidate>
         <input type="hidden" name="id" value="<?php echo $series['series_id'];?>">
         <div class="form-group col-12 col-md-6">
             <label for="title">Title</label>
