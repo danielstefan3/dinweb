@@ -60,8 +60,8 @@
 
         
         if(count($errors) == 0) {
-            $sql = $db->prepare("INSERT INTO series (title,story,release_year,description) VALUES (?,?,?,?)");
-            $sql->bind_param('ssis', $title, $story, $release_year, $description);
+            $sql = $db->prepare("INSERT INTO series (title,story,release_year,description,user_id) VALUES (?,?,?,?,?)");
+            $sql->bind_param('ssis', $title, $story, $release_year, $description, $_SESSION['user_id']);
             $sql->execute();
             $sql->close();
             

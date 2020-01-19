@@ -1,7 +1,7 @@
 <?php if (!defined('APP_VERSION')) { exit; } ?>
     <!-- Start of Footer -->
     </main>
-    <footer class="text-muted">
+    <footer class="text-muted bg-light">
   <div class="container">
     <p class="float-right">
       <a href="#">Back to top</a>

@@ -8,9 +8,9 @@
         <a href="?p=upload" class="btn btn-primary my-2">Upload a series</a>
       </p>
     </div>
-    <div class="skewd bg-light"></div>
+    <div class="skewd bg-white"></div>
   </section>
-  <div class="album py-5 bg-light">
+  <div class="album py-5">
     <div class="container">
       <div class="row">
         <?php foreach (get_all_series(6) as $series):?>

@@ -177,3 +177,28 @@ function get_all_genre($genres = array()) {
         else echo "<option value='$genre[genre_id]'>$genre[name]</option>";
     }
 }
+
+function get_genres_by_id($id) {
+    global $db;
+
+    $sql = $db->prepare("SELECT genre.name FROM genre INNER JOIN series_genre ON series_genre.genre_id = genre.genre_id INNER JOIN series ON series.series_id = series_genre.series_id WHERE series.series_id = ?");
+    $sql->bind_param("i", $id);
+    $sql->execute();
+    $result = $sql->get_result();
+    $genres="";
+    while ($row = $result->fetch_assoc()) {
+        $genres .= "$row[name], ";
+    }
+    return substr($genres,0,-2);
+}
+
+function get_username_by_id($id) {
+    global $db;
+    
+    $sql = $db->prepare("SELECT username FROM users WHERE id = ?");
+    $sql->bind_param("i", $id);
+    $sql->execute();
+    $result = $sql->get_result();
+    $row = $result->fetch_array();
+    return $row[0];
+}
