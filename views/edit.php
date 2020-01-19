@@ -2,11 +2,12 @@
 <?php
     $errors = [];
     if(is_post()) {
-        print_r($_POST);
+        // print_r($_POST);
         $id = $_POST['id'];
         $title = $_POST['title'];
         $release_year = $_POST['release_year'];
         $story = $_POST['story'];
+        $genres = $_POST['genre'];
         $description = $_POST['description'];
 
         $cover_error = $_FILES['cover']['error'];
@@ -60,9 +61,26 @@
             $sql->bind_param('ssisi', $title, $story, $release_year, $description, $id);
             $sql->execute();
             $sql->close();
+
+            if(!empty($genres)) {
+                $sql2 = $db->prepare("DELETE FROM series_genre WHERE series_id = ?");
+                $sql2->bind_param('i', $id);
+                $sql2->execute();
+                $sql2->close();
+            }
+            foreach ($genres as $genre) {
+                $sql2 = $db->prepare("INSERT INTO series_genre (series_id,genre_id) VALUES (?,?)");
+                $sql2->bind_param('ii', $id, $genre);
+                $sql2->execute();
+            }
+            $sql2->close();
             
-            if(isset($_FILES['cover'])) {
-                uploadImageFile("./data/","cover",$id);
+            if($_FILES['cover']['size']) {
+                $pic_name = uploadImageFile("./data/","cover",$id);
+                $sql3 = $db->prepare("UPDATE series SET cover = ? WHERE series_id = ?");
+                $sql3->bind_param('si', $pic_name, $id);
+                $sql3->execute();
+                $sql3->close();
             }
             redirect('details', ['id' => $id, 'success' => 1]);
         }
@@ -72,6 +90,9 @@
     include "_header.php";
     if(isset($_GET['id'])):
     $id = $_GET['id'];
+    if(!isset($_POST['genre'])){
+        $genres = get_genres_array_by_id($id);
+    }
     $series = get_series_by_id($id);
 ?>
 <div class="container">
@@ -82,6 +103,12 @@
             <label for="title">Title</label>
             <input type="text" class="form-control <?php echo is_invalid('title')?>" name="title" value="<?php echo $series['title'];?>">
             <?php echo html_errors('title')?>
+             <label for="genre" class="mt-3">Genre</label>
+            <input type="hidden" name="genre" value="">
+            <select class="js-example-basic-multiple w-100 <?php echo is_invalid('genres')?>" name="genre[]" multiple="multiple">
+                <?php get_all_genre($genres);?>
+            </select>
+            <?php echo html_errors('genres')?>
         </div>
         <div class="form-group col-12 col-md-6">
             <label for="release_year">Release year</label>

@@ -7,7 +7,7 @@ CREATE TABLE `series` (
     `user_id` INT NOT NULL ,
     `cover` VARCHAR(255) NOT NULL,
     `addtime` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAINT FK_series_users FOREIGN KEY (series_id)
+    CONSTRAINT FK_series_users FOREIGN KEY (user_id)
     REFERENCES users(id)
     ON DELETE CASCADE
 )

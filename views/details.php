@@ -24,7 +24,7 @@
         <div class="skewd bottom"></div>
         </div>
         <div class="col-12 mt-4 my-5">
-        <blockquote class="blockquote text-center border border-secondary py-4 px-2 bg-light">
+        <blockquote class="blockquote text-center border border-secondary p-4 bg-light">
             <p class="mb-0"><?php echo $series['description']?></p>
             <footer class="blockquote-footer">review by <cite title="Source Title"><?php echo get_username_by_id($series['user_id'])?></cite></footer>
         </blockquote>

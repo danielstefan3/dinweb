@@ -7,6 +7,7 @@
         $story = $_POST['story'];
         $description = $_POST['description'];
         $genres = $_POST['genre'];
+        $user_id = $_SESSION['user_id'];
 
         $cover_error = $_FILES['cover']['error'];
         $cover_type = $_FILES['cover']['type'];
@@ -61,8 +62,9 @@
         
         if(count($errors) == 0) {
             $sql = $db->prepare("INSERT INTO series (title,story,release_year,description,user_id) VALUES (?,?,?,?,?)");
-            $sql->bind_param('ssis', $title, $story, $release_year, $description, $_SESSION['user_id']);
+            $sql->bind_param('ssisi', $title, $story, $release_year, $description, $user_id);
             $sql->execute();
+            //printf("Error: %s.\n", $sql->error);
             $sql->close();
             
             $new_id = $db->insert_id;
@@ -76,7 +78,7 @@
             
             $pic_name = uploadImageFile("./data/","cover",$new_id);
             $sql3 = $db->prepare("UPDATE series SET cover = ? WHERE series_id = ?");
-            $sql3->bind_param('ss', $pic_name, $new_id);
+            $sql3->bind_param('si', $pic_name, $new_id);
             $sql3->execute();
             $sql3->close();
 

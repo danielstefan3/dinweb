@@ -192,6 +192,20 @@ function get_genres_by_id($id) {
     return substr($genres,0,-2);
 }
 
+function get_genres_array_by_id($id) {
+    global $db;
+
+    $sql = $db->prepare("SELECT genre.genre_id FROM genre INNER JOIN series_genre ON series_genre.genre_id = genre.genre_id INNER JOIN series ON series.series_id = series_genre.series_id WHERE series.series_id = ?");
+    $sql->bind_param("i", $id);
+    $sql->execute();
+    $result = $sql->get_result();
+    $array = array();
+    while($row = $result->fetch_array()){
+        array_push($array,$row[0]);
+    }
+    return $array;
+}
+
 function get_username_by_id($id) {
     global $db;
     
