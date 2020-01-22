@@ -38,8 +38,19 @@ tárolni.
 
 6. Követelmény lista
 
-Követelmény lista | Modul | Név | Kifejtés | |-----------------------|-------------------------------|------------------------------------------------------------------------| | Felület | Főoldal – index.html | A weboldal megnyitásakor megjelenő oldal | | Felület | Header – header.html | A fejléc és menüsáv minden oldalon ugyan az, kivéve a be/kijelentkezés | | Felület | Footer – footer.html | Minden oldal alsó sávja | | Felület | Regisztracio - Register.php | Regisztrációs oldal ahol adatokat kérünk be a usertől. |
-| Felület | Login - Login.php | Bejelentkező felület | | Felület | Feltöltes - Upload.php | Feltöltő felület | | Felület | Szerkeztés - Edit.php | A feltöltött állományok kezelésére szolgáló felület | | Felület | Design | letisztult | | Modifikáció | Adatbázis kezelés | Adatbázisban táblák a userekről, feltöltött adatokról | | Modifikáció | Felhasználó kezelés | regisztráció, bejelentkezés | | Jogosultság | Bejelentkezés / Kijelentkezés | Admin vagy sima felhasználó kezelése | | Jogosultság / Felület | Regisztráció | Regisztrációs felület, adatok bekérése |
+Modul | Név | Kifejtés |
+* | Felület | Főoldal – index.html | A weboldal megnyitásakor megjelenő oldal |
+* | Felület | Header – header.html | A fejléc és menüsáv minden oldalon ugyan az, kivéve a be/kijelentkezés |
+* | Felület | Footer – footer.html | Minden oldal alsó sávja |
+* | Felület | Regisztracio - Register.php | Regisztrációs oldal ahol adatokat kérünk be a usertől. |
+* | Felület | Login - Login.php | Bejelentkező felület |
+* | Felület | Feltöltes - Upload.php | Feltöltő felület |
+* | Felület | Szerkeztés - Edit.php | A feltöltött állományok kezelésére szolgáló felület |
+* | Felület | Design | modern |
+* | Modifikáció | Adatbázis kezelés | Adatbázisban táblák a userekről, feltöltött adatokról |
+* | Modifikáció | Felhasználó kezelés | regisztráció, bejelentkezés |
+* | Jogosultság | Bejelentkezés / Kijelentkezés | Admin vagy sima felhasználó kezelése |
+* | Jogosultság / Felület | Regisztráció | Regisztrációs felület, adatok bekérése |
 
 
 7. Használati esetek

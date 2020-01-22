@@ -19,19 +19,18 @@ Szerkesztési lehetségnek is addottnak kell lennie.
 Igyekem megteremteni egy olyan weboldalt ami designban és felhasználóbarátságban is helyt áll.
 
 ##5. Követelmény lista
-| Modul                 | Név                           | Kifejtés                                                               |
-|-----------------------|-------------------------------|------------------------------------------------------------------------|
-| Felület               | Főoldal – index.html          | A weboldal megnyitásakor megjelenő oldal                               |
-| Felület               | Header – header.html          | A fejléc és menüsáv minden oldalon ugyan az, kivéve a be/kijelentkezés |
-| Felület               | Footer – footer.html          | Minden oldal alsó sávja                                                |
-| Felület               | Regisztracio - Register.php   | Regisztrációs oldal ahol adatokat kérünk be  a usertől.                |                                       
-| Felület               | Login - Login.php             | Bejelentkező felület                                                   |
-| Felület               | Feltöltes - Upload.php        | Feltöltő felület                                                       |
-| Felület               | Szerkeztés - Edit.php         | A feltöltött állományok kezelésére szolgáló felület                    |
-| Felület               | Design                        | modern                                                             |
-| Modifikáció           | Adatbázis kezelés             | Adatbázisban táblák a userekről, feltöltött adatokról                  |
-| Modifikáció           | Felhasználó kezelés           | regisztráció, bejelentkezés                                            |
-| Jogosultság           | Bejelentkezés / Kijelentkezés | Admin vagy sima felhasználó kezelése                                   |
-| Jogosultság / Felület | Regisztráció                  | Regisztrációs felület, adatok bekérése                                 |                                 
+| Modul                 | Név                           | Kifejtés
+* | Felület               | Főoldal – index.html          | A weboldal megnyitásakor megjelenő oldal                               |
+* | Felület               | Header – header.html          | A fejléc és menüsáv minden oldalon ugyan az, kivéve a be/kijelentkezés |
+* | Felület               | Footer – footer.html          | Minden oldal alsó sávja                                                |
+* | Felület               | Regisztracio - Register.php   | Regisztrációs oldal ahol adatokat kérünk be  a usertől.                |
+* | Felület               | Login - Login.php             | Bejelentkező felület                                                   |
+* | Felület               | Feltöltes - Upload.php        | Feltöltő felület                                                       |
+* | Felület               | Szerkeztés - Edit.php         | A feltöltött állományok kezelésére szolgáló felület                    |
+* | Felület               | Design                        | modern                                                                 |
+* | Modifikáció           | Adatbázis kezelés             | Adatbázisban táblák a userekről, feltöltött adatokról                  |
+* | Modifikáció           | Felhasználó kezelés           | regisztráció, bejelentkezés                                            |
+* | Jogosultság           | Bejelentkezés / Kijelentkezés | Admin vagy sima felhasználó kezelése                                   |
+* | Jogosultság / Felület | Regisztráció                  | Regisztrációs felület, adatok bekérése                                 |                                 
 
 
